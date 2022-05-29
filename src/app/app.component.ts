@@ -11,7 +11,7 @@ import { EmployeeService } from './employee.service';
 export class AppComponent implements OnInit {
 
 
-  public employees: Employee[] = [];;
+  public employees: Employee[] = [];
 
   constructor(private employeeService: EmployeeService) { };
 
@@ -21,16 +21,14 @@ export class AppComponent implements OnInit {
   }
 
   public getEmployees(): void {
-    // this will make a request over the network/internet it is on the obersable
-    this.employeeService.getEmployees().subscribe(
-      (response: Employee[]) => {
-        // this will be called if the request is successful
+    this.employeeService.getEmployees().subscribe({
+      next: (response: Employee[]) => {
         this.employees = response;
         console.log(this.employees);
       },
-      (error: HttpErrorResponse) => { 
+      error: (error: HttpErrorResponse) => {
         alert(error.message);
       }
-    );
+    })
   }
 }

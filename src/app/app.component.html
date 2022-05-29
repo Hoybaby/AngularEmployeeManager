@@ -19,21 +19,20 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-6 col-xl-3">
+    <div *ngFor="let employee of employees" class="col-md-6 col-xl-3">
       <div class="card m-b-30">
         <div class="card-body row">
           <div class="col-6">
-            <a href=""><img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt=""
+            <a href=""><img src="{{employee?.imageUrl}}" alt=""
                 class="img-fluid rounded-circle w-60"></a>
           </div>
           <div class="col-6 card-title align-self-center mb-0">
-            <h5>Emma A. Main</h5>
-            <p class="m-0">Graphics Designer</p>
+            <h5>{{employee?.name}}</h5>
+            <p class="m-0">{{employee?.jobTitle}}</p>
           </div>
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item"><i class="fa fa-envelope float-right"></i>Email : <a
-              href="#">PaulGoyette@gmail.com</a></li>
+          <li class="list-group-item"><i class="fa fa-envelope float-right"></i>Email : {{employee?.email}}</li>
           <li class="list-group-item"><i class="fa fa-phone float-right"></i>Phone : 000 123-456</li>
         </ul>
         <div class="card-body">
@@ -54,7 +53,7 @@
         </div>
       </div>
     </div>
-    <div class="col-md-6 col-xl-3">
+    <!-- <div class="col-md-6 col-xl-3">
       <div class="card m-b-30">
         <div class="card-body row">
           <div class="col-6">
@@ -158,6 +157,6 @@
           </ul>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </div>
