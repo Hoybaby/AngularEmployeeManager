@@ -26,6 +26,7 @@ export class AppComponent implements OnInit {
       (response: Employee[]) => {
         // this will be called if the request is successful
         this.employees = response;
+        console.log(this.employees);
       },
       (error: HttpErrorResponse) => { 
         alert(error.message);
