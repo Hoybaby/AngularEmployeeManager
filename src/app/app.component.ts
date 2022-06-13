@@ -37,7 +37,9 @@ export class AppComponent implements OnInit {
   }
 
   //the mode will tell me what i am going to do like add, edit, etc
-  public onOpenModal(employee: Employee, mode: string) {
+  public onOpenModal(mode?: string, employee?: Employee ) {
+
+    const container = document.getElementById('main-container');
 
     const button = document.createElement('button');
     button.type = 'button';
@@ -55,6 +57,9 @@ export class AppComponent implements OnInit {
     if(mode === 'delete') {
       button.setAttribute('data-target', '#deleteEmployeeModal');
     }
+
+    container?.appendChild(button);
+    button.click();
 
   }
 }
