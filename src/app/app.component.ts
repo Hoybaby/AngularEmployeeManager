@@ -1,5 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Employee } from './employee';
 import { EmployeeService } from './employee.service';
 
@@ -34,6 +35,10 @@ export class AppComponent implements OnInit {
         alert(error.message);
       }
     })
+  }
+
+  public onAddEmployee(addForm: NgForm): void {
+    
   }
 
   //the mode will tell me what i am going to do like add, edit, etc
