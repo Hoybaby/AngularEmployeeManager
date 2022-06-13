@@ -20,6 +20,10 @@ export class AppComponent implements OnInit {
     this.getEmployees();
   }
 
+  onAddEmloyee(employee: Employee) {
+
+  }
+
   public getEmployees(): void {
     this.employeeService.getEmployees().subscribe({
       next: (response: Employee[]) => {
@@ -30,5 +34,18 @@ export class AppComponent implements OnInit {
         alert(error.message);
       }
     })
+  }
+
+  //the mode will tell me what i am going to do like add, edit, etc
+  public onOpenModal(employee: Employee, mode: string) {
+
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.style.display = 'none';
+    // adding the toggle modal to the button
+    button.setAttribute('data-toggle', 'modal');
+    if(mode === 'add') {
+      button.setAttribute('data-target', 'addEmployeeModal');
+    }
   }
 }
