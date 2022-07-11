@@ -78,4 +78,20 @@ export class AppComponent implements OnInit {
     button.click();
 
   }
+
+  public onUpdateEmployee(addForm: NgForm): void {
+    document.getElementById('add-employee-form')?.click();
+    this.employeeService.addEmployee(addForm.value).subscribe({
+      next: (response: Employee) => {
+        console.log(response);
+        this.getEmployees();
+        addForm.reset();
+      },
+      error: (error: HttpErrorResponse) => {
+        alert(error.message);
+        addForm.reset();
+      }
+    })
+  }
+
 }
