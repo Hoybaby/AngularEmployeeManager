@@ -10,9 +10,13 @@ import { EmployeeService } from './employee.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  title(title: any) {
+    throw new Error('Method not implemented.');
+  }
 
 
   public employees: Employee[] = [];
+  public editEmployee: Employee | undefined;
 
   constructor(private employeeService: EmployeeService) { };
 
@@ -67,6 +71,7 @@ export class AppComponent implements OnInit {
     }
 
     if(mode === 'edit') {
+      this.editEmployee = employee;
       button.setAttribute('data-target', '#updateEmployeeModal');
     }
 
